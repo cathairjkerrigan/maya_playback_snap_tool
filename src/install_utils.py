@@ -49,9 +49,9 @@ def build_shelf_button():
                 ann="Toggle Playback Restore",
                 c=dedent(
                     """
-                    from PlaybackRestore import toggle_script_job
+                    from PlaybackRestore import toggle_playback_snap_tool
 
-                    toggle_script_job()
+                    toggle_playback_snap_tool()
                     """
                 ),
                 iol="PlaybackRestore",

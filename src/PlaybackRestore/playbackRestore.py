@@ -99,7 +99,7 @@ def kill_script_jobs(inview_message=True):
         )
 
 
-def toggle_script_job():
+def toggle_playback_snap_tool():
     # type: () -> None
     if cmds.optionVar(ex=PLAYBACK_RESTORE_SJ):
         kill_script_jobs()

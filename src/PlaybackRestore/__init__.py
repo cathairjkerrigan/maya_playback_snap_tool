@@ -1,5 +1,5 @@
-from .playbackRestoreScriptJob import toggle_script_job
+from .playbackRestore import toggle_playback_snap_tool
 
 __all__ = [
-    "toggle_script_job"
+    "toggle_playback_snap_tool"
 ]
