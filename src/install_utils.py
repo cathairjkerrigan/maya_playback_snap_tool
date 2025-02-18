@@ -9,11 +9,18 @@ logger = logging.getLogger(__name__)
 
 def get_maya_scripts_folder():
     # type: () -> str
-    path = os.path.join(
+    maya_scripts_path = os.path.join(
         os.path.dirname(os.environ["MAYA_APP_DIR"]),
         r"maya/scripts"
-        )
-    return os.path.normpath(path)
+    )
+    if not os.path.exists(maya_scripts_path):
+        raise RuntimeError("Maya scripts folder not found.")
+
+    dir_path = os.path.join(maya_scripts_path, "PlaybackRestore")
+
+    if not os.path.exists(dir_path):
+        os.mkdir(dir_path)
+    return os.path.normpath(dir_path)
 
 
 def copy_folder(src, dest):
@@ -39,6 +46,7 @@ def get_module_folder():
 
 def build_shelf_button():
     # type: () -> None
+    logger.info("Building shelf button")
     shelf = mel.eval('$gShelfTopLevel=$gShelfTopLevel')
     parent = cmds.tabLayout(shelf, q=True, st=True)  # type: ignore
     cmds.shelfButton(
