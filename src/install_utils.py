@@ -16,7 +16,7 @@ def get_maya_scripts_folder():
     if not os.path.exists(maya_scripts_path):
         raise RuntimeError("Maya scripts folder not found.")
 
-    dir_path = os.path.join(maya_scripts_path, "PlaybackRestore")
+    dir_path = os.path.join(maya_scripts_path, "PlaybackSnap")
 
     if not os.path.exists(dir_path):
         os.mkdir(dir_path)
@@ -40,7 +40,7 @@ def copy_folder(src, dest):
 
 def get_module_folder():
     # type: () -> str
-    path = os.path.join(os.path.dirname(__file__), 'PlaybackRestore')
+    path = os.path.join(os.path.dirname(__file__), 'PlaybackSnap')
     return os.path.normpath(path)
 
 
@@ -53,16 +53,16 @@ def build_shelf_button():
                 w=32,
                 h=32,
                 i="play_hover.png",
-                l="PlaybackRestore",
-                ann="Toggle Playback Restore",
+                l="PlaybackSnap",
+                ann="Toggle Playback Snap Tool",
                 c=dedent(
                     """
-                    from PlaybackRestore import toggle_playback_snap_tool
+                    from PlaybackSnap import toggle_playback_snap_tool
 
                     toggle_playback_snap_tool()
                     """
                 ),
-                iol="PlaybackRestore",
+                iol="PlaybackSnap",
                 sic=True,
                 p=parent
             )

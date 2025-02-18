@@ -67,7 +67,7 @@ def create_script_jobs():
         logger.info("Script jobs created.")
 
     cmds.inViewMessage(
-        msg="<hl>Playback Restore Started</hl>.",
+        msg="<hl>Playback Snap Toggled On</hl>.",
         pos="topCenter",
         f=True
     )
@@ -93,7 +93,7 @@ def kill_script_jobs(inview_message=True):
 
     if inview_message:
         cmds.inViewMessage(
-            msg="<hl>Playback Restore Ended</hl>.",
+            msg="<hl>Playback Snap Toggled Off</hl>.",
             pos="topCenter",
             f=True
         )
