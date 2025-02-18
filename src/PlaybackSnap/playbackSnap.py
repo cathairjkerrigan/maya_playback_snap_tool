@@ -1,12 +1,11 @@
 """
-Maya Playback Restore ScriptJob
+Maya Playback Snap Tool
 
 Author: Cathair Kerrigan
 GitHub: https://github.com/cathairjkerrigan
 Licence: MIT Licence
+Version: 1.0.0
 
-
-Feel free to share/edit the script.
 """
 
 from maya import cmds
