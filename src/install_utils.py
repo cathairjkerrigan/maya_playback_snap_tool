@@ -63,7 +63,7 @@ def build_shelf_button(icon_path):
                     toggle_playback_snap_tool()
                     """
                 ),
-                iol="PlaybackSnap",
+                iol="",
                 sic=True,
                 p=parent
             )
