@@ -44,15 +44,16 @@ def get_module_folder():
     return os.path.normpath(path)
 
 
-def build_shelf_button():
-    # type: () -> None
+def build_shelf_button(icon_path):
+    # type: (str) -> None
     logger.info("Building shelf button")
     shelf = mel.eval('$gShelfTopLevel=$gShelfTopLevel')
     parent = cmds.tabLayout(shelf, q=True, st=True)  # type: ignore
+    icon = os.path.join(icon_path, "playback_snap_icon.svg")
     cmds.shelfButton(
                 w=32,
                 h=32,
-                i="play_hover.png",
+                i=icon,
                 l="PlaybackSnap",
                 ann="Toggle Playback Snap Tool",
                 c=dedent(
@@ -74,5 +75,6 @@ def install():
     dest_folder = get_maya_scripts_folder()
     logger.info("Copying folder '{}' to '{}'".format(src_folder, dest_folder))
     copy_folder(src_folder, dest_folder)
-    build_shelf_button()
+    icon_path = os.path.join(dest_folder, "icons")
+    build_shelf_button(icon_path)
     logger.info("Installation complete.")
